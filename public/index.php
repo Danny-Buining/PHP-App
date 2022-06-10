@@ -12,6 +12,7 @@ use App\Controllers\HomeController;
 use App\Controllers\MovieController;
 use App\View\View;
 use App\Middleware\Auth;
+// use 
 
 // Create app en service-container
 $app = new App();
