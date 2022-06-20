@@ -6,14 +6,17 @@ include("nav.phtml");
 
 //Main
 $html = "<ul>";
-$image = __DIR__."/images/".$movie['picture'];
-if(!is_dir($image)) {
-    $imageData = base64_encode(file_get_contents($image));
-    $src = 'data: '.mime_content_type($image).';base64,'.$imageData;
-}
+$src = $movie['picture'];
+// $image = __DIR__."/images/".$movie['picture'];
+// if(!is_dir($image)) {
+//     $imageData = base64_encode(file_get_contents($image));
+//     $src = 'data: '.mime_content_type($image).';base64,'.$imageData;
+// }
 $html .= "<li>" . $movie['title'] . "</li>";
 $html .= "<li>" . $movie['year'] . "</li>";
-$html .= "<li><img src='".$src."' alt='".$movie['picture']."'></li>";
+// $html .= "<li><img src='".$src."' alt='".$movie['picture']."'></li>";
+// $html .= "<li><iframe src='".$src."' height='500' width='500'></iframe></li>";
+$html .= "<iframe width='560' height='315' src='".$src."' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
 
 $html .= "</ul>";
 
@@ -21,3 +24,4 @@ $render[':content'] = $html;
 
 
 ?>
+

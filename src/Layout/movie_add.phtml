@@ -2,9 +2,10 @@
 include("nav.phtml");
 $form = <<<END
 <form action="/movie/store" method="post">
-Title: <input type="text" name="title"><br>
-Year: <input type="number" name="year" min="1800" max="3000"><br>
-picture: <input type="text" name="picture"><br>
+Artist: <input type="text" name="title"><br>
+Title: <input type="text" name="year" min="1800" max="3000"><br>
+Youtube URL: <input type="text" name="picture"><br>
+Voorbeeld URL: https://www.youtube.com/embed/t3PdA_gJIZo<br>
 <input type="submit">
 </form>
 END;
