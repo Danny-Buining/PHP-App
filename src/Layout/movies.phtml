@@ -7,10 +7,10 @@ include("nav.phtml");
 $table = "<table>";
 foreach($movies as $movie) {
     $image = __DIR__."/images/".$movie['picture'];
-    if(!is_dir($image)) {
-        $imageData = base64_encode(file_get_contents($image));
-        $src = 'data: '.mime_content_type($image).';base64,'.$imageData;
-    }
+    // if(!is_dir($image)) {
+    //     $imageData = base64_encode(file_get_contents($image));
+    //     $src = 'data: '.mime_content_type($image).';base64,'.$imageData;
+    // }
     $table .= "<tr><td><a href='movie/detail/".$movie['movie_id']."'>" . $movie['movie_id'] . "</a></td>";
     $table .= "<td>" . $movie['title'] . "</td>";
     $table .= "<td>" . $movie['year'] . "</td>";
