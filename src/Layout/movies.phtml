@@ -5,6 +5,10 @@ include("nav.phtml");
 
 //Main
 $table = "<table>";
+$table .= "<td>Id</td>";
+$table .= "<td>Artist</td>";
+$table .= "<td>Title</td>";
+$table .= "<td>Delete</td>";
 foreach($movies as $movie) {
     $image = __DIR__."/images/".$movie['picture'];
     // if(!is_dir($image)) {
