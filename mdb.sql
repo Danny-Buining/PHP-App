@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 16 mei 2022 om 09:43
--- Serverversie: 10.4.21-MariaDB-log
--- PHP-versie: 8.0.10
+-- Generation Time: Jul 01, 2022 at 10:26 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mdb`
+-- Database: `php-app`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `movie`
+-- Table structure for table `movie`
 --
 
 CREATE TABLE `movie` (
@@ -37,28 +37,43 @@ CREATE TABLE `movie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Gegevens worden geëxporteerd voor tabel `movie`
+-- Dumping data for table `movie`
 --
 
 INSERT INTO `movie` (`movie_id`, `title`, `year`, `picture`, `created_at`, `updated_at`) VALUES
-(1, 'Tokyo Story', '1953', 'tokyo-story.jpg', NULL, NULL),
-(2, 'Sunrise', '1927', 'sunrise.jpg', NULL, NULL),
-(3, 'A Space Odyssey', '1968', 'space.jpg', NULL, NULL),
-(4, 'The Searchers', '1956', 'searchers.jpg', NULL, NULL),
-(5, 'Man With a Movie Camera', '1929', 'man-with-moviecamera.jpg', NULL, NULL),
-(6, 'The Passion of Joan of Arc', '1927', 'joan-of-arc.jpg', NULL, NULL),
-(7, '8&#189', '1963', '8-and-a-half.jpg', NULL, NULL),
-(8, 'Battleship Potemkin', '1925', 'potemkin.jpg', NULL, NULL),
-(9, 'L\'Atalante', '1934', 'latalante.jpg', NULL, NULL),
-(10, 'Breathless', '1960', 'breathless.jpg', NULL, NULL),
-(11, 'Apocalypse Now', '1979', 'apocalypse-now.jpg', NULL, NULL),
-(12, 'Late Spring', '1949', 'late-spring.jpg', NULL, NULL),
-(13, 'Au Hasard Balthazar', '1966', 'au-hasard-balthazar.jpg', NULL, NULL);
+(1, 'Normaal', 'Godverdomme', 'https://www.youtube.com/embed/t3PdA_gJIZo', NULL, NULL),
+(2, 'Normaal', 'Oerend Hard', 'https://www.youtube.com/embed/pqLAygIsReI', NULL, NULL),
+(3, 'Normaal', 'Deur Donderen', 'https://www.youtube.com/embed/Lf3uowN01aA', NULL, NULL),
+(4, 'Jovink', 'Brommers Kieken', 'https://www.youtube.com/embed/JpXmnfhZtwY', NULL, NULL),
+(5, 'Jovink', 'Aan de kant', 'https://www.youtube.com/embed/QY1yWAlLQ90', NULL, NULL),
+(18, 'Jovink', 'Mongo solo', 'https://www.youtube.com/embed/ktsGVxnm4t4', '2022-06-02 02:06:04', NULL),
+(20, 'Normaal', 'Krachttoer', 'https://www.youtube.com/embed/3dSBDcSVMDM', '2022-06-09 09:06:17', NULL),
+(21, 'Gregossan', 'Urus', 'https://www.youtube.com/embed/TCLXNgd2AHU', '2022-06-11 11:06:11', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `rating`
+-- Table structure for table `music`
+--
+
+CREATE TABLE `music` (
+  `music_id` int(250) NOT NULL,
+  `music_title` varchar(200) NOT NULL,
+  `music_artist` varchar(200) NOT NULL,
+  `music_link` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `music`
+--
+
+INSERT INTO `music` (`music_id`, `music_title`, `music_artist`, `music_link`) VALUES
+(1, 'Urus', 'Gregossan', 'https://www.youtube.com/embed/TCLXNgd2AHU');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rating`
 --
 
 CREATE TABLE `rating` (
@@ -70,7 +85,7 @@ CREATE TABLE `rating` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Gegevens worden geëxporteerd voor tabel `rating`
+-- Dumping data for table `rating`
 --
 
 INSERT INTO `rating` (`user_id`, `movie_id`, `rating`, `created_at`, `updated_at`) VALUES
@@ -79,7 +94,6 @@ INSERT INTO `rating` (`user_id`, `movie_id`, `rating`, `created_at`, `updated_at
 (2, 1, 1, NULL, NULL),
 (2, 2, 4, NULL, NULL),
 (2, 5, 3, NULL, NULL),
-(2, 7, 4, NULL, NULL),
 (3, 1, 3, NULL, NULL),
 (3, 2, 4, NULL, NULL),
 (3, 5, 5, NULL, NULL);
@@ -87,7 +101,7 @@ INSERT INTO `rating` (`user_id`, `movie_id`, `rating`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -99,60 +113,62 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Gegevens worden geëxporteerd voor tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `email`, `password`, `created_at`, `updated_at`) VALUES
 (1, 'janjaap@siewers.org', '$2y$10$XLkW5j83sR4nXRhBGbGFFuwhu1TGeczHhb2q2i6NfIUxNyYdoTx.q', NULL, NULL),
 (2, 'klaus@enk.nl', '$2y$10$ROVR/xml4E1Rqu0lGIR62uOo1cFnSg339GVuMWvUiACJr2LHnXvle', NULL, NULL),
 (3, 'truus@kok.nl', '$2y$10$i4cUTpz6/8m3I19JPXGhDOfFVmB2THZFVchTA8uvOuBH4SOirD2Em', NULL, NULL),
-(4, 'janjaap@siekjhkjhers.org', 'kjhkjhkj', '2022-04-12 14:53:38', NULL);
+(4, 'janjaap@siekjhkjhers.org', 'kjhkjhkj', '2022-04-12 14:53:38', NULL),
+(5, 'henk@gmail.com', 'henkje123', '2022-05-23 09:46:41', '2022-05-23 09:46:17'),
+(6, 'gerritgrindtegel@kaasboer.nl', 'kaasboer69', '2022-06-20 09:30:33', '2022-06-20 09:30:09');
 
 --
--- Indexen voor geëxporteerde tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indexen voor tabel `movie`
+-- Indexes for table `movie`
 --
 ALTER TABLE `movie`
   ADD PRIMARY KEY (`movie_id`);
 
 --
--- Indexen voor tabel `rating`
+-- Indexes for table `rating`
 --
 ALTER TABLE `rating`
   ADD PRIMARY KEY (`user_id`,`movie_id`),
   ADD KEY `fk_rating_movie_idx` (`movie_id`);
 
 --
--- Indexen voor tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- AUTO_INCREMENT voor geëxporteerde tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT voor een tabel `movie`
+-- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT voor een tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Beperkingen voor geëxporteerde tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Beperkingen voor tabel `rating`
+-- Constraints for table `rating`
 --
 ALTER TABLE `rating`
   ADD CONSTRAINT `fk_rating_movie` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
